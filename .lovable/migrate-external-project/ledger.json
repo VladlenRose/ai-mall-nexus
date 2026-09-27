@@ -1,0 +1,14 @@
+{
+  "source": "github:VladlenRose/ai-mall-nexus",
+  "capabilities": [
+    { "capability": "UI pages (landing, dashboard, catalog, seller, chat, documents, profile, auth)", "source": "src/routes, src/components", "outcome": "copied as-is", "status": "migrated", "next_action": "verify in preview" },
+    { "capability": "Design system / styles", "source": "src/styles.css, tailwind tokens", "outcome": "copied as-is", "status": "migrated", "next_action": "verify in preview" },
+    { "capability": "Product images assets", "source": "src/assets/*.jpg", "outcome": "copied", "status": "migrated", "next_action": "none" },
+    { "capability": "Auth (email/password)", "source": "Appwrite Account", "outcome": "replaced with Lovable Cloud auth", "status": "migrated", "next_action": "verify sign-up/sign-in" },
+    { "capability": "Database (profiles, products, threads, messages, documents)", "source": "Appwrite TablesDB", "outcome": "recreated as Lovable Cloud tables with RLS", "status": "migrated", "next_action": "verify CRUD" },
+    { "capability": "Product image storage", "source": "Appwrite Storage bucket product-images", "outcome": "Lovable Cloud private bucket + signed URLs (public buckets blocked by workspace policy)", "status": "migrated", "next_action": "verify upload" },
+    { "capability": "AI negotiation agent", "source": "src/lib/ai.functions.ts (Lovable AI gateway)", "outcome": "kept, model updated to google/gemini-3-flash-preview", "status": "migrated", "next_action": "verify chat reply" },
+    { "capability": "Existing records", "source": "Appwrite project 6a969041000bfc99144f", "outcome": "no record export in repo", "status": "pending", "next_action": "request CSV/JSON exports of tables and users from Appwrite console" },
+    { "capability": "Existing users", "source": "Appwrite auth", "outcome": "no user export in repo", "status": "pending", "next_action": "request user export (emails + original IDs); users will verify email and set a new password on first login" }
+  ]
+}
